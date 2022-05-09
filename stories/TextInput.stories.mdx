@@ -1,0 +1,80 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { linkTo } from '@storybook/addon-links';
+import { TextInput } from '../src'; // components you used in the story
+
+import {
+    StandardTextInput,
+    DisabledTextInput,
+    PasswordTextInput,
+    RequiredTextInput,
+} from './examples/TextInput';
+
+<Meta title="Form/TextInput" component={TextInput} />
+
+# TextInput
+
+TextInput is a foundational and core component that allows users to enter text by giving them a
+text input field. It comes with very usefull props to customize not only the look & feel but
+functionality as well. It is a great component to use in forms, search bars, and other places
+where users need to enter text.
+
+## Table of Contents
+
+In this documentation we talk about the TextInput component, it's functionality and it's props.
+
+- [Functionality](#functionality)
+    - [Disabled TextInput](#disabled-textinput)
+    - [Password TextInput](#password-textinput)
+    - [Required TextInput](#required-textinput)
+- [Other Props & Functionalities](#other-props--functionalities)
+
+## Functionality
+
+Here we will talk in depth about diffrent functionality that TextInput component provides.
+Out of the box TextInput component is a simple text input field. In the example below you
+can see a default TextInput component in action, pretty neat Right?
+
+<Canvas>
+    <Story name="Standard TextInput" args={{ label: 'A standard TextInput' }}>
+        {StandardTextInput.bind({})}
+    </Story>
+</Canvas>
+
+### Disabled TextInput
+
+With the use of `disabled` prop you can disable the TextInput component. This comes in handy
+when you want to disable a TextInput component till the user performs a specific action.
+
+<Canvas>
+    <Story name="Disabled TextInput" args={{ label: 'Disabled TextInput', disabled: true }}>
+        {DisabledTextInput.bind({})}
+    </Story>
+</Canvas>
+
+### Password TextInput
+
+With the use of `password` prop you can make the TextInput component a password field. This is usefull
+when you want to hide the text entered by the user.
+
+<Canvas>
+    <Story name="Password TextInput" args={{ label: 'Password', password: true }}>
+        {PasswordTextInput.bind({})}
+    </Story>
+</Canvas>
+
+### Required TextInput
+
+With the use of `required` prop you can make the TextInput component required. This is usefull
+when you want to make sure the user enters some text before submitting the form.
+
+<Canvas>
+    <Story name="Required TextInput" args={{ label: 'Field is required', required: true }}>
+        {RequiredTextInput.bind({})}
+    </Story>
+</Canvas>
+
+## Other Props & Functionalities
+
+For a full breakdown of all the additional props, refer to the table below. You can find many intresting props like `placeholder`, `hint` `errorMessage` and others.
+
+<ArgsTable of={TextInput} />
