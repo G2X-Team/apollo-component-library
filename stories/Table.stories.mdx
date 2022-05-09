@@ -1,0 +1,112 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { linkTo } from '@storybook/addon-links';
+import { Table } from '../src'; // components you used in the story
+
+import {
+    StandardTable,
+    TableWithPagination,
+    CustomizedTable,
+} from './examples/Table';
+
+<Meta title="Layout/Table" component={Table} />
+
+# Table
+
+The `Table component` is one of the most important components in the UI. It is used to display data in a Table format.
+We have designed our `Table component` to be flexible and easy to use, and with a lot of options to customize it.
+
+We made sure that it comes with advance features like sorting, pagination, and many more out of the box.
+
+## Table of Contents
+
+- [Functionality](#functionality)
+    - [Pagination](#pagination)
+    - [Customizing Tables](#customizing-Tables)
+- [Other Props & Functionalities](#other-props--functionalities)
+
+## Functionality
+
+The `Table component` comes packed with a lot of functionalities to help you display data in a better way.
+There are a lot of props as well that can we used to customize it.
+
+Let us start by loding a standard Table.
+
+<Canvas>
+    <Story name="Standard Table" args={{ data: [
+            { id: 12, name: 'Harry', Age: 17 },
+            { id: 2, name: 'Ron', Age: 18 },
+            { id: 1, name: 'Hermione', Age: 18 },
+        ] }}>
+        {StandardTable.bind({})}
+    </Story>
+</Canvas>
+
+In the Table loaded above you can notice that we have used `data` prop which accepts `json` data.
+This data will be displayed in the Table.
+
+### Pagination
+
+Now let's see what happens when we increase the number of rows and use the `pageSize` prop.
+
+<Canvas>
+    <Story name="Table With Pagination" args={{ data: [
+            { id: 12, name: 'Harry', Age: 17 },
+            { id: 2, name: 'Ron', Age: 18 },
+            { id: 1, name: 'Hermione', Age: 18 },
+            { id: 14, name: 'Ginny', Age: 17 },
+            { id: 15, name: 'Luna', Age: 15 },
+            { id: 16, name: 'Sirius', Age: 35 },
+            { id: 17, name: 'Hagrid', Age: 80 },
+            { id: 18, name: 'Albus', Age: 116 },
+        ], pageSize: "5" }}>
+        {TableWithPagination.bind({})}
+    </Story>
+</Canvas>
+
+As you can notice in the above example we have just increased the `data` in the Table by adding a
+5 more rows and it automatically added pagination to the Table. This happened because we are using
+the `pageSize` prop with a value of `5`, this means that only 5 rows will be displayed in a one page of the
+Table and if the data exceeds that value then a new page will appear in the Table showing the rest of the data. Pretty cool huh?
+
+
+### Customizing Tables
+
+Now let's look at a more customized Table. There are many props given that can be used to customize the Table. Let's look at them first.
+
+- `width`: This prop defines the width of the Table. The default is `100%`.
+- `height`: This prop defines the height of the Table. The default is `100%`.
+- `cellTextColor`: This prop defines the text color of the Table cells. The default is `black`.
+- `cellTextTransform`: This prop defines the text transform of the Table cells. The default is `capitalize`.
+- `cellTextFontWeight`: This prop defines the text font weight of the Table cells. The default is `normal`.
+- `headerTextColor`: This prop defines the text color of the Table header. The default is `white`.
+- `headerTextTransform`: This prop defines the text transform of the Table header. The default is `uppercase`.
+- `headerTextFontWeight`: This prop defines the text font weight of the Table header. The default is `bolder`.
+
+<Canvas>
+    <Story name="Customized Table" args={{ data: [
+            { id: 12, name: 'Harry', Age: 17 },
+            { id: 2, name: 'Ron', Age: 18 },
+            { id: 1, name: 'Hermione', Age: 18 },
+            { id: 14, name: 'Ginny', Age: 17 },
+            { id: 15, name: 'Luna', Age: 15 },
+            { id: 16, name: 'Sirius', Age: 35 },
+            { id: 17, name: 'Hagrid', Age: 80 },
+            { id: 18, name: 'Albus', Age: 116 },
+        ], pageSize: "5", headerTextColor: "#f0acb5", cellTextTransform: "lowercase", height: "450px" }}>
+        {CustomizedTable.bind({})}
+    </Story>
+</Canvas>
+
+The `Table component` comes with a lot of options for customization, with this options you are in full control of how you want to display your data.
+
+In the above example we have used the `headerTextColor` prop to change the text color of the header.
+We have also used the `cellTextTransform` prop to change the text transform of the cell to lowercase
+from capitalize which is the default value. I have also used the `height` prop to change the height of
+the Table to `450px`.
+
+## Other Props & Functionalities
+
+For a full breakdown of all the additional props, refer to the Table below. There are many
+amazing props like `pageNum` which can be used to extend the functionality of the Table.
+
+<ArgsTable of={Table} />
