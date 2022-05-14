@@ -1,0 +1,79 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { linkTo } from '@storybook/addon-links';
+import { Section, Text } from '../src'; // components you used in the story
+
+import {
+    StandardSection,
+    StylingSection,
+    NavigationSection,
+} from './examples/Section';
+
+<Meta title="Interfacing/Section" component={Section} />
+
+# Section
+
+The Section component works like a flexbox container with a fixed `width` and `height`. It can be used to create a layout for your components.
+It is one of the most useful component to have. It is highly customizable thanks to dozens of props.
+
+## Table of Contents
+
+In this documentation we talk about the Section component, it's functionality and props.
+
+- [Functionality](#functionality)
+    - [Styling Section](#styling-section)
+    - [Navigation Section](#navigation-section)
+- [Other Props & Functionalities](#other-props--functionalities)
+
+## Functionality
+
+The main idea behind the section component is to create a container with the properties to alter its items' width/height position to best fill the available space in order to accommodate to all kind of display devices and screen sizes.
+You have full control over the responsive design of the Section component, so they can look great on mobile devices as well as in large format on a desktop.
+
+<Canvas>
+    <Story name="Standard Section" args={{ flex: '1',
+        height: '100',
+        width: '100',
+        minWidth: '1',
+        alignItems: 'center',
+        justifyContent: 'center', }}>
+        {StandardSection.bind({})}
+    </Story>
+</Canvas>
+
+
+### Styling Section
+
+In this example we will use `flex` prop to create a Section with where the `Red` is bigger then the `Blue` column. To do this we just have to change the `flex` prop value from the default 1 to whatever you like, in the example below we have changed it to 4.
+
+<Canvas>
+    <Story name="Styling Section" args={{ flex: '4',
+        height: '100',
+        width: '100',
+        minWidth: '1',
+        alignItems: 'center',
+        justifyContent: 'center', }}>
+        {StylingSection.bind({})}
+    </Story>
+</Canvas>
+
+
+### Navigation Section
+
+In this example we will use the `navigation` prop to determine if the Section is a navigation bar. Turning the `navigation` prop `True` will compress to a hamburger given it shrinks past its min-width.
+
+<Canvas>
+    <Story name="Navigation Section" args={{ flex: '1',
+        height: '100',
+        width: '100',
+        minWidth: '750px',
+        alignItems: 'center',
+        justifyContent: 'center', }}>
+        {NavigationSection.bind({})}
+    </Story>
+</Canvas>
+
+## Other Props & Functionalities
+
+For a full breakdown of all the additional props, refer to the table below.
+
+<ArgsTable of={Section} />
