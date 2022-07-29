@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe, toHaveNoViolations } from 'jest-axe';
 expect.extend(toHaveNoViolations);
 
-import { Default as Checkbox } from '../stories/Checkbox.stories';
+import { Checkbox } from '../src';
 
 describe('Checkbox', () => {
     it('complies with WCAG 2.0', async () => {

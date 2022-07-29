@@ -1,0 +1,74 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { linkTo } from '@storybook/addon-links';
+import { Radio } from '../src'; // components you used in the story
+import {
+    StandardRadio,
+    RadioStates,
+    DisabledRadio,
+} from './examples/Radio';
+
+<Meta title="Form/Radio" component={Radio} />
+
+# Radio
+
+Radio Options allow the user to select one or more items. They are used for filtering, selection, and toggles. They are typically used in forms, where the user can select one or more items from a set.
+> If you have a single option, avoid using a Radio and use a [Switch component](?path=/docs/form-switch--standard-switch) instead.
+
+## Table of Contents
+
+In this documentation we talk about the Radio component in depth about its usage and its props.
+
+- [Functionality](#functionality)
+    - [Radio States](#radio-states)
+    - [Disabled Radio](#disabled-radio)
+- [Other Props & Functionalities](#other-props--functionalities)
+
+## Functionality
+
+Functionally Radio has two states - checked and unchecked. Thanks to the `checked` prop, you can control
+the state of the Radio. It also comes with a `name` prop, that can be used for group identity purposes. If you have a group of inputs, they all should have the same name. It's also required if used inside the Apollo `Form`.
+By using the `children` prop, you can pass a label to the Radio.
+
+Let's have a look at at a simple Radio with `name` & `children` props:
+
+<Canvas>
+	<Story name="Standard Radio" args={{ children: 'This is a Radio',
+        value: 'Radio value',
+        id: 'Radio',
+        name: 'Radio1' }}>
+		{StandardRadio.bind({})}
+	</Story>
+</Canvas>
+
+### Radio States
+
+As mentioned above the the Radio comes with tqo states - checked and unchecked, and these states can be controlled by the `checked` prop.
+Let's look at both of these states:
+
+<Canvas>
+	<Story name="Radio States" args={{ children: 'This is a Radio',
+        value: 'Radio value',
+        id: 'Radio', }}>
+		{RadioStates.bind({})}
+	</Story>
+</Canvas>
+
+### Disabled Radio
+
+With the `disabled` prop, you can disable the Radio. This will prevent the user from interacting with the Radio.
+Here we can see that we have two disabled Radio Options, one is checked and one is unchecked.
+
+<Canvas>
+	<Story name="Disabled Radio" args={{ children: 'This is a Radio',
+        value: 'Radio value',
+        id: 'Radio',
+        disabled: true, }}>
+		{DisabledRadio.bind({})}
+	</Story>
+</Canvas>
+
+## Other Props & Functionalities
+
+Here take a look at the table below, it shows the two addtional props you can use with the Radio component.
+
+<ArgsTable of={Radio} />

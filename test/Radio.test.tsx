@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe, toHaveNoViolations } from 'jest-axe';
 expect.extend(toHaveNoViolations);
 
-import { Default as Radio } from '../stories/Radio.stories';
+import { Radio } from '../src';
 
 describe('Radio', () => {
     it('complies with WCAG 2.0', async () => {

@@ -1,0 +1,74 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { linkTo } from '@storybook/addon-links';
+import { Checkbox } from '../src'; // components you used in the story
+import {
+    StandardCheckbox,
+    CheckboxStates,
+    DisabledCheckbox,
+} from './examples/Checkbox';
+
+<Meta title="Form/Checkbox" component={Checkbox} />
+
+# Checkbox
+
+Checkboxes allow the user to select one or more items. They are used for filtering, selection, and toggles. They are typically used in forms, where the user can select one or more items from a set.
+> If you have a single option, avoid using a Checkbox and use a [Switch component](?path=/docs/form-switch--standard-switch) instead.
+
+## Table of Contents
+
+In this documentation we talk about the Checkbox component in depth about its usage and its props.
+
+- [Functionality](#functionality)
+    - [Checkbox States](#checkbox-states)
+    - [Disabled Checkbox](#disabled-checkbox)
+- [Other Props & Functionalities](#other-props--functionalities)
+
+## Functionality
+
+Functionally Checkbox has two states - checked and unchecked. Thanks to the `checked` prop, you can control
+the state of the Checkbox. It also comes with a `name` prop, that can be used for group identity purposes. If you have a group of inputs, they all should have the same name. It's also required if used inside the Apollo `Form`.
+By using the `children` prop, you can pass a label to the Checkbox.
+
+Let's have a look at at a simple Checkbox with `name` & `children` props:
+
+<Canvas>
+	<Story name="Standard Checkbox" args={{ children: 'This is a checkbox',
+        value: 'checkbox value',
+        id: 'checkbox',
+        name: 'Checkbox1' }}>
+		{StandardCheckbox.bind({})}
+	</Story>
+</Canvas>
+
+### Checkbox States
+
+As mentioned above the the Checkbox comes with tqo states - checked and unchecked, and these states can be controlled by the `checked` prop.
+Let's look at both of these states:
+
+<Canvas>
+	<Story name="Checkbox States" args={{ children: 'This is a checkbox',
+        value: 'checkbox value',
+        id: 'checkbox', }}>
+		{CheckboxStates.bind({})}
+	</Story>
+</Canvas>
+
+### Disabled Checkbox
+
+With the `disabled` prop, you can disable the Checkbox. This will prevent the user from interacting with the Checkbox.
+Here we can see that we have two disabled Checkboxes, one is checked and one is unchecked.
+
+<Canvas>
+	<Story name="Disabled Checkbox" args={{ children: 'This is a checkbox',
+        value: 'checkbox value',
+        id: 'checkbox',
+        disabled: true, }}>
+		{DisabledCheckbox.bind({})}
+	</Story>
+</Canvas>
+
+## Other Props & Functionalities
+
+Here take a look at the table below, it shows the two addtional props you can use with the Checkbox component.
+
+<ArgsTable of={Checkbox} />
